@@ -12,12 +12,15 @@ class CalculatorTest {
     private int positiveNumber;
     private int zeroNumber;
     private int negativeNumber;
+    private double delta;
+    
     @BeforeEach
     void setUp() {
         calculator = new Calculator();
         positiveNumber = 5;
         zeroNumber = 0;
         negativeNumber = -2;
+        delta = 0.01;
     }
 
     @AfterEach
@@ -26,17 +29,17 @@ class CalculatorTest {
     }
 
     @Test
-    void sumPositive() {
+    void sumPositiveNumber() {
         assertEquals(10, calculator.sum(positiveNumber, positiveNumber));
     }
 
     @Test
-    void sumNegative() {
+    void sumNegativeNumber() {
         assertEquals(-4, calculator.sum(negativeNumber, negativeNumber));
     }
 
     @Test
-    void subtractPositive() {
+    void subtractPositiveNumber() {
         assertEquals(0, calculator.subtract(positiveNumber, positiveNumber));
     }
 
@@ -49,5 +52,10 @@ class CalculatorTest {
         assertThrows(ArithmeticException.class, () -> {
             calculator.divide(positiveNumber, zeroNumber);
         });
+    }
+
+    @Test
+    void powerNegativeNumber() {
+        assertEquals(0.04, calculator.power(positiveNumber, negativeNumber));
     }
 }
