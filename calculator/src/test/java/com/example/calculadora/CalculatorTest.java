@@ -12,6 +12,7 @@ class CalculatorTest {
     private int positiveNumber;
     private int zeroNumber;
     private int negativeNumber;
+    private double decimalNumber;
     private double delta;
     
     @BeforeEach
@@ -20,7 +21,8 @@ class CalculatorTest {
         positiveNumber = 5;
         zeroNumber = 0;
         negativeNumber = -2;
-        delta = 0.01;
+        decimalNumber = 1.5;
+        delta = 0.1;
     }
 
     @AfterEach
@@ -44,18 +46,66 @@ class CalculatorTest {
     }
 
     @Test
-    void multiply() {
+    void subtractNegativeNumber() {
+        assertEquals(0, calculator.subtract(negativeNumber, negativeNumber));
     }
 
     @Test
-    void divideZero() {
+    void multiplyPositiveNumber() {
+        assertEquals(25, calculator.multiply(positiveNumber, positiveNumber));
+    }
+
+    @Test
+    void multiplyNegativeNumber() {
+        assertEquals(4, calculator.multiply(negativeNumber, negativeNumber));
+    }
+
+    @Test
+    void dividePositiveNumber() {
+        assertEquals(1, calculator.divide(positiveNumber, positiveNumber));
+    }
+
+    @Test
+    void divideNegativeNumber() {
+        assertEquals(1, calculator.divide(negativeNumber, negativeNumber));
+    }
+
+    @Test
+    void divideZeroNumber() {
         assertThrows(ArithmeticException.class, () -> {
             calculator.divide(positiveNumber, zeroNumber);
         });
     }
 
     @Test
-    void powerNegativeNumber() {
+    void divideDecimalResult() {
+        assertEquals(3.3, calculator.divide(positiveNumber, decimalNumber), delta);
+    }
+
+    @Test
+    void powerPositiveExponent() {
+        assertEquals(3125, calculator.power(positiveNumber, positiveNumber));
+    }
+
+    @Test
+    void powerNegativeExponent() {
         assertEquals(0.04, calculator.power(positiveNumber, negativeNumber));
+    }
+
+    @Test
+    void factorialPositiveNumber() {
+        assertEquals(120, calculator.factorial(positiveNumber));
+    }
+
+    @Test
+    void factorialNegativeNumber() {
+        assertThrows(IllegalArgumentException.class, () -> {
+           calculator.factorial(negativeNumber);
+        });
+    }
+
+    @Test
+    void factorialZeroNumber() {
+        assertEquals(1, calculator.factorial(zeroNumber));
     }
 }

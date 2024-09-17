@@ -39,5 +39,17 @@ public class Calculator {
 
         return isNegative ? 1 / result : result;
     }
+
+    public int factorial(int n) {
+
+        if (n < 0) {
+            throw new IllegalArgumentException("O número não pode ser negativo");
+        }
+        int result = 1;
+        for (int i = 2; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
 }
 
