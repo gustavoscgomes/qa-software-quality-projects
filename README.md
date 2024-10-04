@@ -1,5 +1,9 @@
 # Repositório de Projetos - Qualidade de Software (5B - 2024/2)
 
+[![Java](https://img.shields.io/badge/Java-17-blue.svg)](https://www.oracle.com/java/technologies/javase-jdk17-downloads.html)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7-green.svg)](https://spring.io/projects/spring-boot)
+[![JUnit](https://img.shields.io/badge/Testes-JUnit5-yellow.svg)](https://junit.org/junit5/)
+
 Bem-vindo ao repositório de projetos da disciplina **Qualidade de Software**, do quinto período (Turma 5B), segundo semestre de 2024.
 
 ## Objetivo
